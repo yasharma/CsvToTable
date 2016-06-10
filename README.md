@@ -1,6 +1,8 @@
 # CsvToTable
 Parse the local CSV file using pure javascript and convert to HTML table
 
+Check out the working demo: http://yasharma.github.io/CsvToTable/
+
 ## Usage
 
 #### 1. Clone this repository (in the command line)
