@@ -3,15 +3,10 @@
 	// Constructor method
 	this.CsvToTable = function(){
 		this.csvFile = null;
-		this.async = null;
-		
-		var defaults = {
-			async: true
-		};
 
 		// Create options by extending defaults with the passed in arugments
     	if (arguments[0] && typeof arguments[0] === "object") {
-      		this.options = extendDefaults(defaults, arguments[0]);
+      		this.options = arguments[0];
     	}
 
 	}
@@ -22,11 +17,10 @@
 
 	function getCSV() {
 		try{
-			var csvfile = this.options.csvFile,
-			async = this.options.async;
+			var csvfile = this.options.csvFile;
 			return new Promise(function(resolve, reject) {
 				var request = new XMLHttpRequest();
-				request.open("GET", csvfile, async);
+				request.open("GET", csvfile, true);
 				request.onload = function() {
 				    if (request.status == 200) {
 				        resolve(request.response);
@@ -83,15 +77,6 @@
 		}, function(error){
 			console.error(error);
 		});
-	}
-
-	function extendDefaults(source, properties) {
-		for (var property in properties) {
-		    if (properties.hasOwnProperty(property)) {
-				source[property] = properties[property];
-		    }
-		}
-		return source;
 	}
 	
 }());
