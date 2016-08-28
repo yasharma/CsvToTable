@@ -42,6 +42,7 @@
 	function buildTable() {
 		getCSV.call(this).then(function(response){
 			var allRows = response.split(/\r?\n|\r/);
+			clean.call(this, allRows);
 	        var table = '<table>';
 	        for (var singleRow = 0; singleRow < allRows.length; singleRow++) {
 	            if (singleRow === 0) {
@@ -76,6 +77,17 @@
 	        document.body.innerHTML += table;
 		}, function(error){
 			console.error(error);
+		});
+	}
+
+	// Removes empty elements from an array
+	function clean(arr){
+		arr.filter(function(value, index){
+			var count = 0;
+			if(value === "") {
+				count++;
+				arr.splice(index,count); 
+			}
 		});
 	}
 	

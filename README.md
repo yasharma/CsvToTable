@@ -27,3 +27,7 @@ cd CsvToTable
 
 Available options:
 * `csvFile` Path to your CSV file.
+
+## License
+
+This project is licensed under the [GNU General Public License](https://opensource.org/licenses/GPL-3.0).
