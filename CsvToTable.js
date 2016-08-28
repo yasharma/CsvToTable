@@ -39,13 +39,13 @@
 		}
 	}
 
+    function isNotEmpty(row) {
+        return row !== "";
+    }
+
 	function buildTable() {
 		getCSV.call(this).then(function(response){
-			var allRows = response.split(/\r?\n|\r/);
-			// Remove ending line break.
-			if (allRows[allRows.length - 1] === "") {
-				allRows.pop();
-			}
+			var allRows = response.split(/\r?\n|\r/).filter(isNotEmpty);
 	        var table = '<table>';
 	        for (var singleRow = 0; singleRow < allRows.length; singleRow++) {
 	            if (singleRow === 0) {
