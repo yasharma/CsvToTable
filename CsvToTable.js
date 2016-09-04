@@ -43,6 +43,25 @@
         return row !== "";
     }
 
+    // polyfill `.filter()` for ECMAScript <5.1
+    // `f` must be pure (not modify original array).
+    if (!Array.prototype.filter) {
+      Array.prototype.filter = function(f) {
+        "use strict";
+        var p = arguments[1];
+        var o = Object(this);
+        var len = o.length;
+        for (var i = 0; i < len; i++) {
+          if (i in o) {
+              var v = o[i];
+              f.call(p, v, i, o);
+          }
+        }
+
+        return this;
+      };
+    }
+
 	function buildTable() {
 		getCSV.call(this).then(function(response){
 			var allRows = response.split(/\r?\n|\r/).filter(isNotEmpty);
