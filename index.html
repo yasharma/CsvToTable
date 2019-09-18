@@ -1,37 +1,21 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title>Javascript</title>
-	<style>
-		table {
-		  margin: 0 auto;
-		  text-align: center;
-		  border-collapse: collapse;
-		  border: 1px solid #d4d4d4;
-		  height: 500px; 
-		}
-		 
-		tr:nth-child(even) {
-		  background: #d4d4d4;
-		}
-		 
-		th, td {
-		  padding: 10px 30px;
-		}
-		 
-		th {
-		  border-bottom: 1px solid #d4d4d4;
-		}
-	</style>
-</head>
-<body>
+	<head>
+		<title>Javascript</title>
+		<meta charset="utf-8" />
+		<link rel="stylesheet" type="text/css" href="style.css" />
+	</head>
+	<body>
+		<input type="file" accept=".csv" onchange="handleFile(this.files)" />
 
-<script src="CsvToTable.js"></script>
-<script>
+		<script src="CsvToTable.js"></script>
+		<script>
+			function handleFile(files){
 	var csvtotable = new CsvToTable({
-		csvFile: 'MOCK_DATA.csv'
+		csvFileHandle: files[0]
 	});
 	csvtotable.run();
-</script>
-</body>
+			}
+		</script>
+	</body>
 </html>

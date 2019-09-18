@@ -1,5 +1,5 @@
 # CsvToTable
-Parse the local CSV file using pure javascript and convert to HTML table
+Parse a user local CSV file using pure javascript and convert it to a HTML table
 
 Check out the working demo: http://yasharma.github.io/CsvToTable/
 
@@ -12,22 +12,11 @@ git clone git@github.com:yasharma/CsvToTable.git
 cd CsvToTable
 ```
 
-#### 2. Add your CSV file to current folder
+#### 2. Open `index.html` and select your CSV file using the standardized file upload element
 
-#### 3. In `index.html` configure the `CsvToTable()` constructor function
-
-```html
-<script>
-	var csvtotable = new CsvToTable({
-		csvFile: 'your csv filename/filepath' 
-	});
-	csvtotable.run();
-</script>
-```
-
-Available options:
-* `csvFile` Path to your CSV file.
+#### 3. The table renders as soon as the file is selected
 
 ## License
 
 This project is licensed under the [GNU General Public License](https://opensource.org/licenses/GPL-3.0).
+
