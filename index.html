@@ -1,21 +1,21 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Javascript</title>
-    <meta charset="utf-8" />
-    <link rel="stylesheet" type="text/css" href="style.css" />
-  </head>
-  <body>
-    <input type="file" accept=".csv" onchange="handleFile(this.files)" />
+	<head>
+		<title>Javascript</title>
+		<meta charset="utf-8" />
+		<link rel="stylesheet" type="text/css" href="style.css" />
+	</head>
+	<body>
+		<input type="file" accept=".csv" onchange="handleFile(this.files)" />
 
-    <script src="CsvToTable.js"></script>
-    <script>
-      function handleFile(files){
+		<script src="CsvToTable.js"></script>
+		<script>
+			function handleFile(files){
 	var csvtotable = new CsvToTable({
-	  csvFileHandle: files[0]
+		csvFileHandle: files[0]
 	});
 	csvtotable.run();
-      }
-    </script>
-  </body>
+			}
+		</script>
+	</body>
 </html>
